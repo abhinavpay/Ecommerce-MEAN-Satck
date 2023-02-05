@@ -1,0 +1,17 @@
+ .card-img-top{
+    width:150px ;
+    height: 200px;
+
+} 
+
+.card-img-top:hover{
+    transform: scale(0.8)
+    
+} 
+
+.py-5{
+    margin: 50px;
+}
+
+
+

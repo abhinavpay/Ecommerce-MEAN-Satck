@@ -1,0 +1,56 @@
+	
+                Front end (23-01-2023)
+
+create a project - new cart
+2)run angula rng seve --o
+3)add bootstrap,fontawesome,google fonts
+4)lazy loading
+
+        its a process of loading components and modules,
+        it improves application loadtime and performance.
+
+          ng g m products --route products --module app.module  
+
+5)add router-outlet selector into the route component app.component.html.
+
+6)create a component should lazy loaded in the products module.
+
+ ->all-products - ng g c products/all-products
+ ->cart - ng g c products/cart
+ ->wishlists - ng g c products/wishlist
+
+7)setup each path for module
+    product-routing module
+
+8)page not found - ng g c page not found outside products , outside of lazy-loading
+
+
+setting path for page page-not-found app-routing.module.ts
+
+ {path:'**',component:PageNotFoundComponent}
+
+9)creating header and footer
+
+ng g c header
+ng g c footer
+
+10)designing of frontend
+
+11)integration
+
+a)creating services for API Calling - ng g s products/api
+
+b)import HttpClientModule in products module
+
+c) dependency injection HttpClient class in api service
+
+
+12)Page designing
+
+13) search for a product
+
+    ng g p products/pipes/filter 
+
+
+
+calling api in api service - for connecting two independent componenets

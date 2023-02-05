@@ -1,0 +1,51 @@
+                      E - cart server creation_  (20-1-2023)
+
+    
+    1.create a db.json and import product data from fake product api.com .
+    2.create a database in mongodb and import db.json
+
+install nodemon - npm i nodemon
+
+
+    3.create package.json file - npm init.
+ 4. create node modules - npm i express
+5.create index.js - (main entry point)
+6. in index.js
+
+                1.import express 
+                2.create an application using express
+                3.use json parser for server creation
+                4.set up a port number
+
+
+                
+
+7.Integration
+
+                1.Install cors - npm i cors
+                2.import cors in index.js
+
+ 
+ 8. create a folder for service
+
+                    create file named db.js
+                    create file named dataService.js
+
+9. backend and mongodb connection
+
+        1.install  mongoose - npm i mongoose
+        2.import mongoose in to db.js
+        3.define connection string
+        4.create a model for products and exports it
+
+10.in datservice
+
+            1.create a logic in dataservice
+
+11.resolving api calls in index.js
+
+    1)import db
+    2.define function
+
+
+

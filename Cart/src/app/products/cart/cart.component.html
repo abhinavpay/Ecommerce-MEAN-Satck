@@ -1,0 +1,115 @@
+<!-- empty cart -->
+
+<div class="empty-cart">
+
+    <div class="container text-center m-5 " id="cart" *ngIf="cartitem.length==0">
+        <div class="row">
+            <div class="col">
+                <img style="width: 40%;" src="https://bakestudio.in/assets/images/cart/empty-cart.gif" alt="">
+                <h3 class="m-4">Your cart is empty</h3>
+                <button class="btn btn-primary m-3" routerLink="/">Shop Now</button>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+
+
+
+
+<!-- table for cart -->
+<div class="container" *ngIf="cartitem.length!=0">
+    <div class="row">
+        <div class="col">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Number</th>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let product of cartitem, let i = index">
+                        <td >{{i+1}}</td>
+                        <td >{{product.title}}</td>
+                        <td><img [src]="product.image" alt=""></td>
+                        <td>{{product.description}}</td>
+                        <td>${{product.price}}</td>
+                        <td><i (click)="removecart(product)" class="fa-solid fa-trash text-danger"></i></td>
+                        
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <div>
+                <button (click)="removeall()" type="button" class="btn btn-danger m-3">Empty Cart</button>
+                <button type="button" class="btn btn-success m-3">Shop More</button>
+                <button  type="button" class="btn btn-warning m-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Check Out</button>
+                <b>Grand Total : {{grand}}</b>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Check out page</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <h1>Delivery Address</h1>
+        <form action="">
+        <input type="text" placeholder="Enter your address" class="form-control" mb-2>
+        <input type="text" placeholder="House No" class="form-control" mb-2>
+        <input type="text" placeholder="Pincode" class="form-control" mb-2>
+        <input type="text" placeholder="State" class="form-control" mb-2>
+        <input type="text" placeholder="Country" class="form-control" mb-2>
+        <input type="text" placeholder="Contact no" class="form-control" mb-2>
+    </form>
+        </div>
+
+        
+            <h3>Discounts</h3>
+            <div [ngSwitch]="grand">
+
+            <img (click)="discount5per()" *ngSwitchDefault="5" style="width: 90px;" src="https://cdn1.vectorstock.com/i/1000x1000/71/50/promo-code-coupon-code-icon-emblem-logo-in-brush-vector-33267150.jpg" alt="">
+
+
+            <img  (click)="discount5per()" *ngSwitchCase="5" style="width: 90px;" src="https://www.shutterstock.com/image-vector/5-coupon-promotion-sale-website-260nw-2039676701.jpg" alt="">
+
+
+            <img  (click)="discount10per()" *ngSwitchCase="10" style="width: 90px;" src="https://www.shutterstock.com/image-vector/10-euro-coupon-promotion-sale-260nw-2040328955.jpg" alt="">
+
+
+            <img  (click)="discount50per()" *ngSwitchCase="50" style="width: 90px;" src="https://www.shutterstock.com/image-vector/50-coupon-promotion-sale-website-260nw-2039676860.jpg" alt="">
+
+        </div>
+
+        <div>
+            <p>Your Grand Total : {{updatedgrand}}</p>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button (click)="proceed()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Proceed</button>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+
+
